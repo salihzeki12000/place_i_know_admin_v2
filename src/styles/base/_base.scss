@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5% 
+}
+
+body {
+  background-color: $light-grey!important;
+  color: $dark-grey;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif!important;
+  font-size: 1.6rem;
+  font-weight: 200;
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
+}

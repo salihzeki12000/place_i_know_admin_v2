@@ -1,0 +1,14 @@
+.content-area {
+  h1 {
+    font-size: $font-size-large;
+    font-weight: 300;
+  }
+}
+
+.content-card {
+  background: #fff;
+  border: 1px solid darken($light-grey, 10%);
+  display: block;
+  padding: 15px 20px;
+  min-width: 100%;
+}

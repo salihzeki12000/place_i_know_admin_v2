@@ -1,0 +1,96 @@
+.card {
+  background: #fff;
+  border: 1px solid darken($light-grey, 10%);
+  display: block;
+  margin-bottom: 16px;
+  transition: box-shadow .3s ease;
+  width: 100%;
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.08);
+  }
+}
+
+.card__content {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+}
+
+.card__content--column {
+  @extend .card__content;
+  flex-direction: column;
+  .card__image {
+    img {
+      height: 175px;
+      width: 100%;
+    }
+  }
+}
+
+.card__content-text-well {
+  height: 100px;
+  padding: 16px 24px;
+  width: 100%;
+}
+
+.card__content--text {
+  padding: 12px 24px;
+  width: 100%;
+}
+
+.card__title {
+  font-size: $font-size-medium;
+}
+
+.card__image {
+  display: flex;
+  align-content: stretch;
+  img {
+    height: 100%;
+    width: 175px;
+    object-position: center;
+    object-fit: cover;
+  }
+}
+
+.card__basic-information {
+  margin-bottom: 12px;
+  div {
+    margin-bottom: 6px;
+  }
+}
+
+.card__basic-information--purple {
+  color: #8a2be2;
+}
+
+.card__basic-information--red {
+  color: #F62B40;
+}
+
+.card__actions {
+  align-items: center;
+  align-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+
+.card__action {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.card__action__icon {
+  font-size: 18px;
+}
+
+.card__additional-information {
+  margin: $m-size 0;
+  transition: 0.4s ease-in-out;
+}
+
+.card__additional-information--hidden {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
