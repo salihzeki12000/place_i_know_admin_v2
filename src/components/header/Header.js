@@ -15,7 +15,7 @@ export class Header extends React.Component {
       <div className="header">
         <div className="header__content">
           <Link to="/home">
-            <img src="/images/logo.png" alt="Place I Know" className="header__logo" />
+            <img src="/images/logo_white.png" alt="Place I Know" className="header__logo" />
           </Link>
           <div className="header__nav">
             <Link to="/home">

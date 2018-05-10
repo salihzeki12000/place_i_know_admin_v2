@@ -1,6 +1,6 @@
 .header {
-  background: #fff;
-  border-bottom: 1px solid darken($light-grey, 10%);
+  background: $slate-grey;
+  border-bottom: 1px solid darken($slate-grey, 10%);
   flex: 0 0 auto;
   height: 70px;
   overflow: hidden;
@@ -37,14 +37,14 @@
 }
 
 .header__nav-element {
-  color: $grey;
+  color: darken($light-grey, 10%);
   cursor: pointer;
   font-size: $font-size-small;
   font-weight: 200;
   letter-spacing: 1px;
   padding: 40px 20px;
   &:hover {
-    background-color: $brand-teal;
+    background-color: darken($slate-grey, 10%);
     color: #fff!important;
   }
   > span.active {
