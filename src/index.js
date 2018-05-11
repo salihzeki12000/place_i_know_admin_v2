@@ -54,7 +54,7 @@ const determinePathToRender = authState => {
     });
   } else {
     renderApp();
-    history.push('/');
+    history.push('/signin');
   }
 };
 
