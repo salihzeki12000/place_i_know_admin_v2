@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { store } from './../index';
 
 export const getTrips = () => {
   return async (dispatch, getState) => {
