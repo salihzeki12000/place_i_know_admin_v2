@@ -11,24 +11,24 @@ export class DocumentUploadPage extends React.Component {
   };
 
   render() {
+    if (this.props.isReadyToUploadDocument) {
+      return (
+        <DocumentUploadForm
+          handleSubmit={this.handleNewDocumentSubmit}
+          handleHideForm={this.props.onHideForm}
+        />
+      );
+    }
     return (
       <div>
         <h2>Upload New Document</h2>
-        {!this.props.isReadyToUploadDocument && (
-          <Spin spinning={this.props.isCreatingNewDocument}>
-            <DocumentCreateForm
-              onSubmit={this.handleDocumentCreateFormSubmission}
-              handleHideForm={this.props.onHideForm}
-              existingDocumentGroups={this.props.existingDocumentGroups}
-            />
-          </Spin>
-        )}
-        {this.props.isReadyToUploadDocument && (
-          <DocumentUploadForm
-            handleSubmit={this.handleNewDocumentSubmit}
+        <Spin spinning={this.props.isCreatingNewDocument}>
+          <DocumentCreateForm
+            onSubmit={this.handleDocumentCreateFormSubmission}
             handleHideForm={this.props.onHideForm}
+            existingDocumentGroups={this.props.existingDocumentGroups}
           />
-        )}
+        </Spin>
       </div>
     );
   }

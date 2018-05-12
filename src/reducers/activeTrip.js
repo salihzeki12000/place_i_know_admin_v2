@@ -1,8 +1,6 @@
 import documentReducer from './document';
 
-const initialState = {
-  trip: {},
-};
+const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -61,6 +59,11 @@ export default (state = initialState, action) => {
         documents: documentReducer(state.documents, action),
       };
     case 'CREATE_DOCUMENT_ERROR':
+      return {
+        ...state,
+        documents: documentReducer(state.documents, action),
+      };
+    case 'CLEAR_NEW_DOCUMENT_OBJECT':
       return {
         ...state,
         documents: documentReducer(state.documents, action),

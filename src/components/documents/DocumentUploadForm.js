@@ -9,7 +9,7 @@ const FormItem = Form.Item;
 
 const UploadField = makeField(Upload.Dragger);
 
-const customUploadRequest = async ({
+const customUploadRequest = ({
   action,
   data,
   file,
@@ -27,23 +27,24 @@ const customUploadRequest = async ({
   }
   formData.append(filename, file);
 
-  try {
-    const response = axios.put(action, formData, {
+  axios
+    .put(action, formData, {
       headers,
       onUploadProgress: ({ total, loaded }) => {
-        onSuccess(response, file);
+        onProgress({ percent: Math.round(loaded / total * 100).toFixed(2) }, file);
       },
-    });
-    onSuccess(response, file);
-  } catch (e) {
-    onError();
-  }
+    })
+    .then(({ data: response }) => {
+      onSuccess(response, file);
+    })
+    .catch(onError());
 };
 
 export class DocumentUploadForm extends React.Component {
   handleFinishUploading = () => {
+    this.props.handleHideForm();
     this.props.finishUploading(this.props.uploadObject.document_id);
-  }
+  };
 
   render() {
     return (

@@ -102,17 +102,26 @@ export const finishUploadingDocument = documentId => {
           uploaded: true,
         },
         {
-          'x-auth': getState().auth.token,
+          headers: {
+            'x-auth': getState().auth.token,
+          },
         }
       );
 
       if (response.status === 200) {
         dispatch(updateDocumentSuccess({}));
+        dispatch(clearNewDocumentObject());
         dispatch(getDocumentGroups(getState().activeTrip.data.trip_id));
       }
     } catch (e) {
       dispatch(updateDocumentError(e));
     }
+  };
+};
+
+export const clearNewDocumentObject = () => {
+  return {
+    type: 'CLEAR_NEW_DOCUMENT_OBJECT',
   };
 };
 

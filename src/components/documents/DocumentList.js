@@ -4,7 +4,7 @@ import { Card, Icon, List } from 'antd';
 
 export class DocumentList extends React.Component {
   humanizeDuration(date) {
-    return moment(date).fromNow();
+    return moment.utc(date).fromNow();
   }
 
   render() {

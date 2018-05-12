@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { Form, Field, reduxForm, formValueSelector } from 'redux-form';
 import { DatePicker, Icon, Input, Button, Select, Upload } from 'antd';
 import { makeField } from './../../forms/makeField';
@@ -34,8 +35,9 @@ export let DocumentCreateForm = props => {
         name="fileName"
         component={InputField}
         prefix={<Icon type="file" />}
+        addonAfter=".pdf"
       />
-      <Field label="Expiry Date" name="expires" component={DateField} />
+      <Field label="Expiry Date" name="expires" component={DateField} defaultValue={props.tripEndDate.add(3, 'M')} />
       <Button type="primary" htmlType="submit">
         Next&nbsp;<Icon type="right" />
       </Button>&nbsp;
@@ -47,15 +49,16 @@ export let DocumentCreateForm = props => {
 };
 
 DocumentCreateForm = reduxForm({
-  form: 'uploadDocument',
+  form: 'createDocument',
   destroyOnUnmount: true,
   forceUnregisterOnUnmount: true,
 })(DocumentCreateForm);
 
-const selector = formValueSelector('uploadDocument');
+const selector = formValueSelector('createDocument');
 
 const mapStateToProps = state => ({
   selectedDocumentGroup: selector(state, 'documentGroupId'),
+  tripEndDate: moment(state.activeTrip.data.end_date),
 });
 
 export default connect(mapStateToProps)(DocumentCreateForm);

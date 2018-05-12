@@ -55,6 +55,11 @@ export default (state = initialState, action) => {
           data: {},
         },
       };
+    case 'CLEAR_NEW_DOCUMENT_OBJECT':
+      return {
+        ...state,
+        new: undefined,
+      }
     case 'UPDATE_DOCUMENT_START':
       return {
         ...state,
