@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Divider, Icon, Spin } from 'antd';
 import DocumentGroups from './DocumentGroups';
 import { getDocumentGroups } from './../../actions/document';
-import DocumentUploadForm from './DocumentUploadForm';
+import DocumentUploadPage from './DocumentUploadPage';
 
 export class DocumentsPage extends React.Component {
   constructor(props) {
@@ -41,9 +41,9 @@ export class DocumentsPage extends React.Component {
         )}
 
         {this.state.isUploadFormVisible && (
-          <DocumentUploadForm
+          <DocumentUploadPage
             existingDocumentGroups={this.props.documentGroups.data}
-            onCancel={this.toggleUploadFormVisibility}
+            onHideForm={this.toggleUploadFormVisibility}
           />
         )}
         <Divider />

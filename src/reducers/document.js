@@ -28,6 +28,45 @@ export default (state = initialState, action) => {
         loading: false,
         data: [],
       };
+    case 'CREATE_DOCUMENT_START':
+      return {
+        ...state,
+        new: {
+          loading: true,
+          error: null,
+          data: {},
+        },
+      };
+    case 'CREATE_DOCUMENT_SUCCESS':
+      return {
+        ...state,
+        new: {
+          loading: false,
+          error: null,
+          data: action.data,
+        },
+      };
+    case 'CREATE_DOCUMENT_ERROR':
+      return {
+        ...state,
+        new: {
+          loading: false,
+          error: action.error,
+          data: {},
+        },
+      };
+    case 'UPDATE_DOCUMENT_START':
+      return {
+        ...state,
+      };
+    case 'UPDATE_DOCUMENT_SUCCESS':
+      return {
+        ...state,
+      };
+    case 'UPDATE_DOCUMENT_ERROR':
+      return {
+        ...state,
+      };
     default:
       return state;
   }

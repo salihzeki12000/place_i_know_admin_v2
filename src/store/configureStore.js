@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form';
 import authReducer from './../reducers/auth';
 import tripReducer from './../reducers/trip';
 import activeTripReducer from './../reducers/activeTrip';
@@ -12,6 +13,7 @@ export default () => {
       auth: authReducer,
       trips: tripReducer,
       activeTrip: activeTripReducer,
+      form: formReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );
